@@ -31,7 +31,46 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title)
       ),
-      body: Center(child: Text("Hello Flutter", style: TextStyle(fontSize: 22)))
+      body: Container(constraints: BoxConstraints.expand(),
+        color: Colors.green[100],
+        child: Center(
+          child: Container(color: Colors.green[400],
+            padding: EdgeInsets.all(8),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    buildChannel(),
+                    buildChannel(),
+                    buildChannel(),
+                  ],
+                ),
+                Row(mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    buildChannel(),
+                    buildChannel(),
+                    buildChannel(),
+                  ],
+                ),
+                Row(mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    buildChannel(),
+                    buildChannel(),
+                    buildChannel(),
+                  ],
+                ),
+              ],
+            )
+          )
+        )
+      )
     );
   }
 }
+
+Container buildChannel() => Container(margin: EdgeInsets.all(4), width: 100, height: 100, color: Colors.green[100]);
