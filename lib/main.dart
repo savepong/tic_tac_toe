@@ -105,7 +105,7 @@ Container buildChannel(
     if (status == 1) {
       return Icons.close;
     } else if (status == 2) {
-      return Icons.radio_button_checked;
+      return Icons.radio_button_unchecked;
     }
     return null;
   }
