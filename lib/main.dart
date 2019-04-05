@@ -25,6 +25,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  static const double RADIUS_CORNER = 12;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,25 +45,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    buildChannel(),
-                    buildChannel(),
-                    buildChannel(),
+                    buildChannel(RADIUS_CORNER, 0, 0, 0),
+                    buildChannel(0, 0, 0, 0),
+                    buildChannel(0, RADIUS_CORNER, 0, 0),
                   ],
                 ),
                 Row(mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    buildChannel(),
-                    buildChannel(),
-                    buildChannel(),
+                    buildChannel(0, 0, 0, 0),
+                    buildChannel(0, 0, 0, 0),
+                    buildChannel(0, 0, 0, 0),
                   ],
                 ),
                 Row(mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    buildChannel(),
-                    buildChannel(),
-                    buildChannel(),
+                    buildChannel(0, 0, RADIUS_CORNER, 0),
+                    buildChannel(0, 0, 0, 0),
+                    buildChannel(0, 0, 0, RADIUS_CORNER),
                   ],
                 ),
               ],
@@ -73,4 +75,21 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-Container buildChannel() => Container(margin: EdgeInsets.all(4), width: 100, height: 100, color: Colors.green[100]);
+Container buildChannel(double tlRadius,
+  double trRadius,
+  double blRadius,
+  double brRadius) => 
+  Container(
+    margin: EdgeInsets.all(2), 
+    width: 100, 
+    height: 100, 
+    decoration: BoxDecoration(
+      color: Colors.green[100],
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(tlRadius),
+        topRight: Radius.circular(trRadius),
+        bottomLeft: Radius.circular(blRadius),
+        bottomRight: Radius.circular(brRadius)
+      )
+    )
+  );
