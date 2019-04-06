@@ -110,11 +110,19 @@ Container buildChannel(
     return null;
   }
 
+  Color colorBorder = Colors.green[600];
+  Color colorBackground = Colors.green[100];
+  Color colorBackgroundChannelNone = Colors.green[200];
+  Color colorBackgroundChannelValueX = Colors.green[400];
+  Color colorBackgroundChannelValueO = Colors.green[400];
+  Color colorChannelIcon = Colors.green[800];
+
+
   Color getBackgroundChannelFromStatus(int status) {
     if (status == 1) {
-      return Colors.green[300];
+      return colorBackgroundChannelValueX;
     } else if (status == 2) {
-      return Colors.green[300];
+      return colorBackgroundChannelValueO;
     }
-    return Colors.green[100];
+    return colorBackgroundChannelNone;
   }
