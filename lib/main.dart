@@ -30,6 +30,12 @@ class _MyHomePageState extends State<MyHomePage> {
   static const int VALUE_X = 1;
   static const int VALUE_O = 2;
 
+  List<List<int>> channelStatus = [
+    [VALUE_X, NONE, VALUE_X],
+    [NONE, VALUE_X, NONE],
+    [VALUE_X, NONE, VALUE_X],
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,25 +54,25 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    buildChannel(RADIUS_CORNER, 0, 0, 0, NONE),
-                    buildChannel(0, 0, 0, 0, VALUE_X),
-                    buildChannel(0, RADIUS_CORNER, 0, 0, VALUE_O),
+                    buildChannel(RADIUS_CORNER, 0, 0, 0, channelStatus[0][0]),
+                    buildChannel(0, 0, 0, 0, channelStatus[0][1]),
+                    buildChannel(0, RADIUS_CORNER, 0, 0, channelStatus[0][2]),
                   ],
                 ),
                 Row(mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    buildChannel(0, 0, 0, 0, VALUE_X),
-                    buildChannel(0, 0, 0, 0, VALUE_X),
-                    buildChannel(0, 0, 0, 0, VALUE_O),
+                    buildChannel(0, 0, 0, 0, channelStatus[1][0]),
+                    buildChannel(0, 0, 0, 0, channelStatus[1][1]),
+                    buildChannel(0, 0, 0, 0, channelStatus[1][2]),
                   ],
                 ),
                 Row(mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    buildChannel(0, 0, RADIUS_CORNER, 0, VALUE_X),
-                    buildChannel(0, 0, 0, 0, NONE),
-                    buildChannel(0, 0, 0, RADIUS_CORNER, VALUE_X),
+                    buildChannel(0, 0, RADIUS_CORNER, 0, channelStatus[2][0]),
+                    buildChannel(0, 0, 0, 0, channelStatus[2][1]),
+                    buildChannel(0, 0, 0, RADIUS_CORNER, channelStatus[2][2]),
                   ],
                 ),
               ],
